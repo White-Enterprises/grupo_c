@@ -15,10 +15,14 @@ def position():
     while i < 5:
         posicion=random.randint(0,8)
         if fila[posicion]==0:
-            num=random.randint(1,9) + (posicion*10)
-            fila[posicion]=num
-            i+=1
-
+            if posicion == 8:
+                num=random.randint(80,90)
+                fila[posicion]=num
+                i+=1
+            else:
+                num=random.randint(0,9) + (posicion*10)
+                fila[posicion]=num
+                i+=1
     return fila
 
 def carton():
@@ -68,8 +72,29 @@ def carton():
                 carton[f+1][c]=num_nuevo
                 num_nuevo=random.randint(1,9) + (c*10)
                 carton[f+2][c]=num_nuevo
-    return carton
+    
+    carton_ = carton[0] + carton[1] + carton[2]
 
-pp(carton())
+    return carton_
+
+cantidad = int(input("Ingrese la cantidad de cartones a generar: "))
+
+def cartones(cantidad):
+  
+    cantidad_list = []
+    i = 0
+    while i < cantidad:
+        carton_generado = carton()
+        if not carton_generado in cantidad_list:
+            cantidad_list.append(carton_generado)
+            i += 1
+    return cantidad_list
+
+i=0
+for item in cartones(cantidad):
+    i+=1
+    print(f"Carton { i } Fila 1: {item[:9]}")
+    print(f"         Fila 2: {item[9:18]}")
+    print(f"         Fila 3: {item[18:27]}")
 
 
