@@ -35,7 +35,7 @@ def carton():
 
     f = 0
     for c in range(len(carton[0])):
-        if carton[f][c] and carton[f+1][c] and carton[f+2][c]: # 3 NUMEROS 3 POSICIONES TRUE 
+        if carton[f][c] and carton[f+1][c] and carton[f+2][c]: 
         
             while carton[f][c] >= carton[f+1][c] or carton[f][c] >= carton[f+2][c] or carton[f+1][c] >= carton[f+2][c]:
 
@@ -77,7 +77,7 @@ def carton():
 
     return carton_
 
-cantidad = int(input("Ingrese la cantidad de cartones a generar: "))
+# cantidad = int(input("Ingrese la cantidad de cartones a generar: "))
 
 def cartones(cantidad):
   
@@ -90,11 +90,12 @@ def cartones(cantidad):
             i += 1
     return cantidad_list
 
-i=0
-for item in cartones(cantidad):
-    i+=1
-    print(f"Carton { i } Fila 1: {item[:9]}")
-    print(f"         Fila 2: {item[9:18]}")
-    print(f"         Fila 3: {item[18:27]}")
 
+
+# i=0
+# for item in cartones(cantidad):
+#     i+=1
+#     print(f"Carton { i } Fila 1: {item[:9]}")
+#     print(f"         Fila 2: {item[9:18]}")
+#     print(f"         Fila 3: {item[18:27]}")
 
