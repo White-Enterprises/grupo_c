@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block cartones %}
+
+    <nav class="navbar navbar-dark bg-dark border border-light border-start-0 border-top-0 border-end-0">
+        <div>
+        <button class="btn btn-success" onclick="location.href='/'">Inicio</button>
+        </div>
+    </nav>
+
+    <div class="cantidad_carton">
+        <form method="POST" name="agregar_cartones" action="/cartones">
+            <label class="label" for="valor">Ingresar cantidad:</label>
+            <input type="number" name="valor" id="valor" step="1" value="0" min = "0">
+            <button type="submit" class="btn btn-danger">Agregar </button>
+        </form>
+
+        <form method="POST" name = "ir_a_pagina" action="/cartones">
+            <label class="label" for="valor_pag">Ir a:</label>
+            <input type="number" name="valor_pag" id="valor_pag" step="1" placeholder="Ingresar pagina" min = "1" max = {{ cantidad_paginas }}>
+            <button type="submit" class="btn btn-danger">Ir </button>
+        </form>
+    </div>  
+
+    {% if path_json %}
+        <div class="contenedor_cartones">
+            {% for item  in datos_json %}  
+                {% for carton, numeros  in item.items() %}    
+                    <div class="element">
+                        <div class="fila_carton">
+                            {{ carton }}
+                        </div>
+
+                            <div class="fila">
+                                {% for item in numeros[:9] %}
+                                    <div class="numeros">
+                                        {{ item }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="fila">
+                                {% for item in numeros[9:18] %}
+                                <div class="numeros">
+                                    {{ item }}
+                                </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="fila">
+                                {% for item in numeros[18:27] %}
+                                <div class="numeros">
+                                    {{ item }}
+                                </div>
+                                {% endfor %}
+                            </div>
+                    </div>    
+                {% endfor %}
+            {% endfor %}
+        </div>    
+    {% endif %}
+
+    <footer>
+        White enterprice - Grupo C
+        <h1>{{ cantidad_paginas }}</h1>
+    </footer>
+    
+{% endblock cartones %}

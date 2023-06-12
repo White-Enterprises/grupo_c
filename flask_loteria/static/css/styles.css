@@ -10,16 +10,13 @@
     align-items: center;
 }
 
-.contenedor_cartones{
-    display: flex;
-    flex-wrap: wrap;
+.contenedor_cartones {
+    display: grid;
     max-width: 100%;
     padding-left: 2%;
     padding-right: 2%;
-    row-gap: 24px;
-    column-gap: 80px;
-    justify-content: space-around;
-}
+    justify-content: center;
+  }
 
 .fila_carton{
     text-align: center;
